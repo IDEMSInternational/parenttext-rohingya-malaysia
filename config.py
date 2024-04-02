@@ -1,14 +1,13 @@
 # Data sources, IDs of Google Sheets where the core date is stored.
 # Specific for PCC.
-localised_sheets = "1M3ohkdFNWzYQdMBdlnPP2_pi3RttKGXAvCUBgYLvuHA"
+localised_sheets = "1zclrjl-xMtLk3IizX-VhLjZsO0eSfrVc0wKVRse3qCE"
 
 # Shared with all deployments.
 # Multiple content index for different types of content.
 T_content = "1hcH8pFdiHZN0UvZgyv3Zht9ARBTx-VXhNBI2o8L7fHU"
 N_onboarding_data = "1NujmHWbalM74U0Yl370MABtoYp6vfusUsrpq9a80n2Q"
 T_onboarding = "1Sl0Jl_N4cGQi2INmE_EnX_aYUMUrUB6cKbuWVPzirtY"
-C_ltp_activities ="1P8OmAMo7_KPVDGSBScRB6ml2e4psCeKS3deG75NFllw"
-C_modules_all_ages = "1kGl23QMmUHPUamKxMkNqivYi2zESE7hKX6xkL-WnEM0"
+C_modules_all_ages = "1BZ6R-aW9FB8OoXKr1nDnAdUwlgc2Q0vYpeEOZ2C9vYY"
 N_safeguarding_data = "1da7Kiw8KJXc026Ydq0lp52m7nP3TjoyWTHuxa74u5Tg"
 T_safeguarding = "1bWOyM5yShTTJSaxwqRCrjUzkwbp7DF6_nSF_96YcZ2c"
 T_delivery = "1q6E2c4Bg_UvqTmhxAsTIQngwAtj0aFoqu8wsPHnqmaU"
@@ -41,7 +40,6 @@ sources = [
         "spreadsheet_ids": [
             N_onboarding_data,
             T_onboarding,
-            C_ltp_activities,
             C_modules_all_ages,
             T_content,
             N_safeguarding_data,
@@ -56,7 +54,7 @@ sources = [
         # "archive": "parenttext_all.zip",
         #"archive": "https://drive.usercontent.google.com/download?id=1V9fQZ9ZrzwRkQWBtlHJ1it0Fe3hdtHs2&export=download&authuser=0&confirm=t&uuid=f9d65ff1-b210-4b61-a030-cd4a231c22ca&at=APZUnTVzz2FLSi1riCmRjCFI5vCx:1696348063599",  # noqa: E501
         "crowdin_name": "module",
-        "tags": [4,"response"],
+        "tags": [1,"module",4,"response"],
         #"tags": [1,"onboarding",1, "safeguarding",1,"delivery",4,"response"],
         "split_no": 1
     }
