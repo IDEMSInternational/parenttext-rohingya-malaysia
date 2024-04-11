@@ -1,20 +1,20 @@
 # Data sources, IDs of Google Sheets where the core date is stored.
-# Specific for PCC.
+# Specific for Rohingya.
 localised_sheets = "1zclrjl-xMtLk3IizX-VhLjZsO0eSfrVc0wKVRse3qCE"
 
 # Shared with all deployments.
 # Multiple content index for different types of content.
+#templates
 T_content = "1hcH8pFdiHZN0UvZgyv3Zht9ARBTx-VXhNBI2o8L7fHU"
-N_onboarding_data = "1NujmHWbalM74U0Yl370MABtoYp6vfusUsrpq9a80n2Q"
 T_onboarding = "1Sl0Jl_N4cGQi2INmE_EnX_aYUMUrUB6cKbuWVPzirtY"
-C_modules_all_ages = "1BZ6R-aW9FB8OoXKr1nDnAdUwlgc2Q0vYpeEOZ2C9vYY"
-N_safeguarding_data = "1da7Kiw8KJXc026Ydq0lp52m7nP3TjoyWTHuxa74u5Tg"
 T_safeguarding = "1bWOyM5yShTTJSaxwqRCrjUzkwbp7DF6_nSF_96YcZ2c"
 T_delivery = "1q6E2c4Bg_UvqTmhxAsTIQngwAtj0aFoqu8wsPHnqmaU"
-N_delivery_data_response = "1W5Z0usyFcxZo85nXjSbjUj0-mjf7bG646w0BCwlO1pU"
-T_menu = "1lIiFjZKS0eXzzo6XwDdqYv4e1A73WFCpWZg5ju-tCZE"
-N_menu_data_response = "1Mg1MuS3p2FNMVJl9Qu9ouU9rjzOrPiF3HWleMKHPK3Y"
-N_menu_data_common = "1maT0rZGZjm1cyqyr1U6wI3HULiVVyTEV0xqjkkXki8c"
+
+
+#local content and navigation messages
+C_content = "1BZ6R-aW9FB8OoXKr1nDnAdUwlgc2Q0vYpeEOZ2C9vYY"
+N_navigation = "1SEHO7D5Dxshe3C4A0X4PUgYIUrTfLo42SQdxPQT9ESg"
+
 
 # "filename" is how it will be generally named in the pipeline.
 #
@@ -38,23 +38,18 @@ sources = [
     {
         "filename": "parenttext_all",
         "spreadsheet_ids": [
-            N_onboarding_data,
+            C_content,
+            N_navigation,
             T_onboarding,
-            C_modules_all_ages,
             T_content,
-            N_safeguarding_data,
             T_safeguarding,
-            N_delivery_data_response,
             T_delivery,
-            N_menu_data_common,
-            N_menu_data_response,
-            T_menu,
             localised_sheets
         ],
         # "archive": "parenttext_all.zip",
         #"archive": "https://drive.usercontent.google.com/download?id=1V9fQZ9ZrzwRkQWBtlHJ1it0Fe3hdtHs2&export=download&authuser=0&confirm=t&uuid=f9d65ff1-b210-4b61-a030-cd4a231c22ca&at=APZUnTVzz2FLSi1riCmRjCFI5vCx:1696348063599",  # noqa: E501
         "crowdin_name": "module",
-        "tags": [1,"module",4,"response"],
+        "tags": [],
         #"tags": [1,"onboarding",1, "safeguarding",1,"delivery",4,"response"],
         "split_no": 1
     }
@@ -70,13 +65,13 @@ model = "models.parenttext_models"
 # Languages that will be looked for to localize back into the flows, "language" is the
 # 3-letter code used in RapidPro, "code" is the 2 letter code used in CrowdIn.
 languages = [
-    {"language": "fra", "code": "fr"}
+    {"language": "msa", "code": "ms"}
 ]
 
 # Location where translations are stored, at the moment pointing to a locally cloned
 # repo, should maybe be adapted so we can provide a link to an online repo.
 translation_repo = "https://github.com/IDEMSInternational/plh-digital-content"
-folder_within_repo = "translations/parent_text_crisis_global"
+folder_within_repo = "translations/parent_text_rohingya"
 
 # In one of the latter stages we have the option to modify the quick replies:
 # 1 - We may want to remove the quick replies and add them to message text and give
@@ -90,6 +85,7 @@ qr_treatment = "reformat"
 # This is the default phrase we want to add in if the quick replies are being moved to
 # message text.
 select_phrases = "./edits/select_phrases.json"
+replace_phrases = "./edits/select_phrases.json"
 
 # If we are in scenario 1 above, we may wish to add some basic numerical quick
 # replies back in, if so we need to specify add_selectors as True
@@ -114,13 +110,13 @@ length_threshold = "18"
 # Same for all deployments.
 ab_testing_sheet_ID = "1i_oqiJYkeoMsYdeFOcKlvvjnNCEdQnZlsm17fgNvK0s"
 # Crisis specific.
-localisation_sheet_ID = "1cyPKUKEkAgaxZMQAVdLqDt9OBEjYXHV2ciIzGKdRfd0" #remove??
+localisation_sheet_ID = "" #remove??
 
 # Google Sheet ID containing dict edits data.
 # Same for all deployments.
 eng_edits_sheet_ID = "1Ab8H_s26EuOiS4nZ6HGADjD4CZw55586LL66fl8tEWI"
-# Crisis specific.
-transl_edits_sheet_ID = "1QxkFWdy56WDHopeHysRVDpEJdDA_b_dKFVQqaMCftrU"
+# Rohingya specific.
+transl_edits_sheet_ID = "13XoigbGoLZlzuCotDYOvkvgYTZnG0h26wG_n3CgLCDg"
 
 # Names of redirect flows to be modified as part of safeguarding process.
 redirect_flow_names = (
@@ -151,8 +147,8 @@ def create_config():
         #"sg_flow_name": "safeguarding_wfr_interaction",
         "sg_sources": [
             {
-               "key": "fra",
-               "path": "excel_files/safeguarding crisis.xlsx",
+               "key": "msa",
+               "path": "excel_files/safeguarding rohingya.xlsx",
             }
         ],
         "sources": sources,
